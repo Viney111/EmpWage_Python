@@ -3,7 +3,7 @@
         @Date: 2022-04-11 08:54AM
         @Last Modified by: Viney Khaneja
         @Last Modified time: None
-        @Title : UC1_Check Employee Present or absent
+        @Title : EmpWage Problem Statements
     '''
 
 print("Welcome to EmpWage Program in Python")
@@ -20,6 +20,7 @@ class Constants:
     PART_TIME_HOURS = 4
     FULL_DAY_HOURS = 8
     MAX_WORKING_DAYS_PER_MONTH = 20
+    MAX_WORK_HRS_PER_MONTH = 100
 
 def get_work_hours():
     '''
@@ -40,8 +41,12 @@ def get_work_hours():
             work_hrs = 0
     return work_hrs
 
-monthly_emp_wage = 0
-for i in range(1,Constants.MAX_WORKING_DAYS_PER_MONTH + 1):
-    monthly_emp_wage += Constants.WAGE_PER_HOUR * get_work_hours()
+#Initializing Variables with zero value
+monthly_emp_wage = total_work_hrs = total_work_days = 0
+while total_work_hrs <= Constants.MAX_WORK_HRS_PER_MONTH and total_work_days < Constants.MAX_WORKING_DAYS_PER_MONTH:
+    work_hrs_per_day = get_work_hours()
+    total_work_hrs += work_hrs_per_day
+    total_work_days += 1
 
+monthly_emp_wage = Constants.WAGE_PER_HOUR * total_work_hrs
 print(f"Person earns {monthly_emp_wage} rupees this month")

@@ -43,14 +43,14 @@ def get_work_hours():
 
 #Initializing Variables with zero value
 monthly_emp_wage = total_work_hrs = total_work_days = daily_wage = 0
-daily_wage_list = []
+daily_wage_dict = {}
 #Applying Constions of Max Working days and hours in Whie Loop
 while total_work_hrs <= Constants.MAX_WORK_HRS_PER_MONTH and total_work_days < Constants.MAX_WORKING_DAYS_PER_MONTH:
     work_hrs_per_day = get_work_hours() #Calling GetWorkHrs Function...
     daily_wage = work_hrs_per_day * Constants.WAGE_PER_HOUR
-    daily_wage_list.append(daily_wage)
     total_work_hrs += work_hrs_per_day
     total_work_days += 1
+    daily_wage_dict[total_work_days] = daily_wage
 
 monthly_emp_wage = Constants.WAGE_PER_HOUR * total_work_hrs
-print(f"Person earns {monthly_emp_wage} rupees this month & Daily Emp Wage is {daily_wage_list} respectively.")
+print(f"Person earns {monthly_emp_wage} rupees this month & Daily Emp Wage daywise:\n{daily_wage_dict} respectively.")

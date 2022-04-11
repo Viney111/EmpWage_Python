@@ -43,8 +43,9 @@ def get_work_hours():
 
 #Initializing Variables with zero value
 monthly_emp_wage = total_work_hrs = total_work_days = 0
+#Applying Constions of Max Working days and hours in Whie Loop
 while total_work_hrs <= Constants.MAX_WORK_HRS_PER_MONTH and total_work_days < Constants.MAX_WORKING_DAYS_PER_MONTH:
-    work_hrs_per_day = get_work_hours()
+    work_hrs_per_day = get_work_hours() #Calling GetWorkHrs Function...
     total_work_hrs += work_hrs_per_day
     total_work_days += 1
 
